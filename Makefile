@@ -1673,6 +1673,9 @@ jtest: rocksdbjava
 jdb_bench:
 	cd java;$(MAKE) db_bench;
 
+ycsb-rocksdb-server: ycsb/main.o $(LIBOBJECTS)
+	$(AM_LINK)
+
 commit_prereq: build_tools/rocksdb-lego-determinator \
                build_tools/precommit_checker.py
 	J=$(J) build_tools/precommit_checker.py unit unit_481 clang_unit release release_481 clang_release tsan asan ubsan lite unit_non_shm
